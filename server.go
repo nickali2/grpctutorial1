@@ -14,6 +14,7 @@ func main() {
 	}
 	s := chat.Server{}
 	grpcserver := grpc.NewServer()
+
 	chat.RegisterChatServiceServer(grpcserver, &s)
 	if err := grpcserver.Serve(lis); err != nil {
 		log.Fatalf("unable to start grpc server on port 9000, %v", err)
